@@ -7,7 +7,6 @@ class GitSemv < Formula
   homepage "https://github.com/linyows/git-semv"
   version "1.2.0"
   license "MIT"
-  bottle :unneeded
 
   on_macos do
     if Hardware::CPU.intel?
