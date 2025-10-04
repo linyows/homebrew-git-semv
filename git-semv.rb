@@ -5,38 +5,57 @@
 class GitSemv < Formula
   desc "This is a Git plugin for Semantic Versioning."
   homepage "https://github.com/linyows/git-semv"
-  version "1.2.0"
+  version "2.0.0"
   license "MIT"
+
+  depends_on "git"
 
   on_macos do
     if Hardware::CPU.intel?
-      url "https://github.com/linyows/git-semv/releases/download/v1.2.0/git-semv_darwin_x86_64.tar.gz"
-      sha256 "75b32256c94d35b44bc01966dea44d69bf82b499698de9aee5937cd45db164e5"
+      url "https://github.com/linyows/git-semv/releases/download/v2.0.0/git-semv_darwin_amd64.tar.gz"
+      sha256 "a3db3bba3174f02ca90cc5cd3312e33a2f4a850d87d7b42315636225c995e84d"
+
+      def install
+        bin.install "git-semv"
+        #  zsh_completion.install "misc/completion.zsh"
+        #  bash_completion.install "misc/completion.bash"
+        #  fish_completion.install "misc/completion.fish"
+      end
     end
     if Hardware::CPU.arm?
-      url "https://github.com/linyows/git-semv/releases/download/v1.2.0/git-semv_darwin_arm64.tar.gz"
-      sha256 "c43dfd5364c69a919dc77ef914a7aa7ba6f59a990a7cf592a142eec12b693a9d"
+      url "https://github.com/linyows/git-semv/releases/download/v2.0.0/git-semv_darwin_arm64.tar.gz"
+      sha256 "4f9ef1d803b964675966d26913e57db723a82b03ab33867a19b8effedb6f0d7d"
+
+      def install
+        bin.install "git-semv"
+        #  zsh_completion.install "misc/completion.zsh"
+        #  bash_completion.install "misc/completion.bash"
+        #  fish_completion.install "misc/completion.fish"
+      end
     end
   end
 
   on_linux do
-    if Hardware::CPU.intel?
-      url "https://github.com/linyows/git-semv/releases/download/v1.2.0/git-semv_linux_x86_64.tar.gz"
-      sha256 "b082e003a04aaa19dd69f22da4a3be3474101d996df860bb319746f7a78b2a0b"
+    if Hardware::CPU.intel? && Hardware::CPU.is_64_bit?
+      url "https://github.com/linyows/git-semv/releases/download/v2.0.0/git-semv_linux_amd64.tar.gz"
+      sha256 "6a9ebf435761c04a913176faec1b68a557c8f88ff8ad58ebaf5a74074abaa188"
+      def install
+        bin.install "git-semv"
+        #  zsh_completion.install "misc/completion.zsh"
+        #  bash_completion.install "misc/completion.bash"
+        #  fish_completion.install "misc/completion.fish"
+      end
     end
     if Hardware::CPU.arm? && Hardware::CPU.is_64_bit?
-      url "https://github.com/linyows/git-semv/releases/download/v1.2.0/git-semv_linux_arm64.tar.gz"
-      sha256 "fd84dab502443e221b87eb01e398c1b6baa1e6a6a3ebd0f55c7a200a29b56305"
+      url "https://github.com/linyows/git-semv/releases/download/v2.0.0/git-semv_linux_arm64.tar.gz"
+      sha256 "41c563193ca87d1b2433408ada9a9a0031f6745b96994690e27e64db0516d077"
+      def install
+        bin.install "git-semv"
+        #  zsh_completion.install "misc/completion.zsh"
+        #  bash_completion.install "misc/completion.bash"
+        #  fish_completion.install "misc/completion.fish"
+      end
     end
-  end
-
-  depends_on "git"
-
-  def install
-    bin.install "git-semv"
-    #  zsh_completion.install "misc/completion.zsh"
-    #  bash_completion.install "misc/completion.bash"
-    #  fish_completion.install "misc/completion.fish"
   end
 
   test do
